@@ -1,0 +1,13 @@
+const handleUpload = async (e) => {
+  const file = e.target.files[0];
+  const formData = new FormData();
+  formData.append('image', file);
+
+  const res = await fetch('https://api.votre-domaine.com/api/upload', {
+    method: 'POST',
+    body: formData,
+  });
+  
+  const data = await res.json();
+  console.log("Image enregistrée sur le VPS :", data.url);
+};

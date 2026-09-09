@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Inter:wght@400;700&family=Noto+Sans+Tifinagh:wght@400;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui;
+  --font-arabic: "Cairo", sans-serif;
+  --font-tifinagh: "Noto Sans Tifinagh", sans-serif;
+  --color-gate-beige: #f1d9a8;
+  --color-gate-green: #65ab0c;
+  --color-gate-blue: #3d6add;
+  --color-gate-orange: #f59e0b;
+}
+.banner {
+  background: url("/public/bannerPortail.png");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+

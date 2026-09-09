@@ -1,0 +1,97 @@
+import { CouncilMember } from "@/types/concil";
+
+export const mockCouncilMembers: CouncilMember[] = [
+  // --- BUREAU DU CONSEIL ---
+  {
+    id: 1,
+    fullName: { FR: "Ibrahim El Mansouri", AR: "إبراهيم المنصوري" },
+    role: { FR: "Président du Conseil", AR: "رئيس المجلس الجماعي" },
+    politicalParty: { FR: "RNI", AR: "التجمع الوطني للأحرار" },
+    photoUrl: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80",
+    isBureauMember: true,
+    bureauOrder: 1,
+  },
+  {
+    id: 2,
+    fullName: { FR: "Fatima Zohra Alami", AR: "فاطمة الزهراء العلمي" },
+    role: { FR: "1ère Vice-Présidente", AR: "النائبة الأولى للرئيس" },
+    politicalParty: { FR: "PAM", AR: "الأصالة والمعاصرة" },
+    photoUrl: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
+    isBureauMember: true,
+    bureauOrder: 2,
+  },
+  {
+    id: 3,
+    fullName: { FR: "Karim Bennani", AR: "كريم بناني" },
+    role: { FR: "2ème Vice-Président", AR: "النائب الثاني للرئيس" },
+    politicalParty: { FR: "Istiqlal", AR: "حزب الاستقلال" },
+    photoUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
+    isBureauMember: true,
+    bureauOrder: 3,
+  },
+  {
+    id: 4,
+    fullName: { FR: "Amina Oudghiri", AR: "أمينة الودغيري" },
+    role: { FR: "3ème Vice-Présidente", AR: "النائبة الثالثة للرئيس" },
+    politicalParty: { FR: "RNI", AR: "التجمع الوطني للأحرار" },
+    photoUrl: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
+    isBureauMember: true,
+    bureauOrder: 4,
+  },
+  {
+    id: 5,
+    fullName: { FR: "Omar Chraibi", AR: "عمر الشرايبي" },
+    role: { FR: "Secrétaire du Conseil", AR: "كاتب المجلس" },
+    politicalParty: { FR: "PAM", AR: "الأصالة والمعاصرة" },
+    photoUrl: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80",
+    isBureauMember: true,
+    bureauOrder: 5,
+  },
+  {
+    id: 6,
+    fullName: { FR: "Khadija Berrada", AR: "خديجة برادة" },
+    role: { FR: "Adjointe du Secrétaire", AR: "نائبة كاتب المجلس" },
+    politicalParty: { FR: "Istiqlal", AR: "حزب الاستقلال" },
+    photoUrl: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=400&q=80",
+    isBureauMember: true,
+    bureauOrder: 6,
+  },
+
+  // --- AUTRES MEMBRES DU CONSEIL ---
+  {
+    id: 7,
+    fullName: { FR: "Rachid Tazi", AR: "رشيد التازي" },
+    role: { FR: "Conseiller Communal", AR: "مستشار جماعي" },
+    politicalParty: { FR: "MP", AR: "الحركة الشعبية" },
+    photoUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+    isBureauMember: false,
+    bureauOrder: 0,
+  },
+  {
+    id: 8,
+    fullName: { FR: "Hassan Amrani", AR: "حسن العمراني" },
+    role: { FR: "Conseiller Communal", AR: "مستشار جماعي" },
+    politicalParty: { FR: "USFP", AR: "الاتحاد الاشتراكي" },
+    photoUrl: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80",
+    isBureauMember: false,
+    bureauOrder: 0,
+  },
+  {
+    id: 9,
+    fullName: { FR: "Siham El Fassi", AR: "سهام الفاسي" },
+    role: { FR: "Conseillère Communale", AR: "مستشارة جماعية" },
+    politicalParty: { FR: "RNI", AR: "التجمع الوطني للأحرار" },
+    photoUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&q=80",
+    isBureauMember: false,
+    bureauOrder: 0,
+  },
+  {
+    id: 10,
+    fullName: { FR: "Youssef Naciri", AR: "يوسف الناصري" },
+    role: { FR: "Conseiller Communal", AR: "مستشار جماعي" },
+    politicalParty: { FR: "PAM", AR: "الأصالة والمعاصرة" },
+    photoUrl: "", // Test sans photo (affichera l'icône par défaut)
+    isBureauMember: false,
+    bureauOrder: 0,
+  },
+];

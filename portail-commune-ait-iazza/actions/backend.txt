@@ -1,0 +1,63 @@
+const express = require('express');
+const multer = require('multer');
+const path = require('path');
+
+const app = express();
+
+// 1. Définir où stocker les fichiers (le volume persistant de Coolify)
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    // Ce dossier doit être mappé dans votre volume Coolify
+    cb(null, '/app/uploads'); 
+  },
+  filename: (req, file, cb) => {
+    // On renomme pour éviter les doublons (ex: 17123456-image.jpg)
+    cb(null, Date.now() + '-' + file.originalname);
+  }
+});
+
+const upload = multer({ storage: storage });
+
+// 2. Route d'upload
+app.post('/api/upload', upload.single('image'), (req, res) => {
+  if (!req.file) return res.status(400).send('Aucun fichier reçu.');
+
+  // Ici, on récupère le nom du fichier pour la base de données
+  const imageUrl = `/uploads/${req.file.filename}`;
+  
+  // LOGIQUE DB : await db.query('INSERT INTO images (url) VALUES ($1)', [imageUrl]);
+
+  res.json({ message: 'Succès !', url: imageUrl });
+});
+
+// 3. Rendre les fichiers accessibles publiquement
+app.use('/uploads', express.static('/app/uploads'));
+
+app.listen(5000, () => console.log('Backend sur port 5000'));
+
+
+
+
+
+
+-- Création d'une énumération ou contrainte pour les couleurs si nécessaire
+CREATE TABLE procedure_items (
+    id SERIAL PRIMARY KEY,
+    slug VARCHAR(100) UNIQUE NOT NULL,
+    
+    -- Utilisation de JSONB pour BilingualText
+    -- Format attendu : {"FR": "Texte", "AR": "نص"}
+    title JSONB NOT NULL,
+    description JSONB NOT NULL,
+    
+    -- Le nom de l'icône Lucide (ex: 'Shield', 'FileText')
+    icon_name VARCHAR(50) NOT NULL,
+    
+    href VARCHAR(255) NOT NULL,
+    color VARCHAR(20) NOT NULL,
+    
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Index pour accélérer la recherche dans les champs JSONB
+CREATE INDEX idx_procedure_title_fr ON procedure_items ((title->>'FR'));
